@@ -1,0 +1,7 @@
+2024-10-19 21:23:43,123, INFO, Путь - c:\Users\aliiz\DEV\homework_bot\homework.py, Файл - homework.py, Функция - check_tokens, Номер строки - 38, Проверка доступности переменных окружения
+2024-10-19 21:23:43,156, INFO, Путь - c:\Users\aliiz\DEV\homework_bot\homework.py, Файл - homework.py, Функция - send_message, Номер строки - 45, Отправка запроса статуса
+2024-10-19 21:23:43,160, INFO, Путь - c:\Users\aliiz\DEV\homework_bot\homework.py, Файл - homework.py, Функция - send_message, Номер строки - 50, Запрос отправлен
+2024-10-19 21:23:43,161, INFO, Путь - c:\Users\aliiz\DEV\homework_bot\homework.py, Файл - homework.py, Функция - main, Номер строки - 113, Бот готов проверять, как дела у домашек
+2024-10-19 21:23:43,161, INFO, Путь - c:\Users\aliiz\DEV\homework_bot\homework.py, Файл - homework.py, Функция - get_api_answer, Номер строки - 64, Начал выполняться запрос: https://practicum.yandex.ru/api/user_api/homework_statuses/, {'Authorization': 'OAuth y0_AgAAAAAJlZyAAAYckQAAAAEVCedSAAAlVrDBQyZMHZw9S8IZzJfgJ7LRJA'}, {'from_date': 1729362223}.
+2024-10-19 21:23:43,426, INFO, Путь - c:\Users\aliiz\DEV\homework_bot\homework.py, Файл - homework.py, Функция - send_message, Номер строки - 45, Отправка запроса статуса
+2024-10-19 21:23:43,427, INFO, Путь - c:\Users\aliiz\DEV\homework_bot\homework.py, Файл - homework.py, Функция - send_message, Номер строки - 50, Запрос отправлен
