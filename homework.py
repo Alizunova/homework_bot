@@ -35,14 +35,14 @@ logger = logging.getLogger(__name__)
 def check_tokens():
     """Проверка доступности переменных окружения."""
     missing_tokens = []
-    dict = {
+    tokens_dict = {
         "PRACTICUM_TOKEN": PRACTICUM_TOKEN,
         "TELEGRAM_TOKEN": TELEGRAM_TOKEN,
         "TELEGRAM_CHAT_ID": TELEGRAM_CHAT_ID,
     }
-    for key, value in dict.items():
-        if not value:
-            missing_tokens.append(key)
+    for key_name, value_token in tokens_dict.items():
+        if not value_token:
+            missing_tokens.append(key_name)
     if missing_tokens:
         logger.critical(
             f"Отсутствуют обязательные переменные окружения: "
