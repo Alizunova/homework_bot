@@ -8,7 +8,6 @@ import requests
 import telebot
 from dotenv import load_dotenv
 from requests.exceptions import RequestException
-
 from telebot import TeleBot
 
 from exceptions import MissingTokensError, ResponseEndpointException
@@ -45,14 +44,13 @@ def check_tokens():
             missing_tokens.append(key_name)
     if missing_tokens:
         logger.critical(
-            f"Отсутствуют обязательные переменные окружения: "
+            "Отсутствуют обязательные переменные окружения: "
             f"{', '.join(missing_tokens)}."
         )
         raise MissingTokensError(
             "Не заданы необходимые переменные окружения: "
             f"{', '.join(missing_tokens)}. Программа остановлена."
         )
-    return len(missing_tokens) == 0
 
 
 def send_message(bot, message):
@@ -95,15 +93,12 @@ def check_response(response):
     """Проверка ответа API на соответствие документации."""
     if not isinstance(response, dict):
         raise TypeError(f"Неверный тип данных у элемента {type(response)}")
+    if "homeworks" not in response:
+        raise KeyError("В ответе API отсутствует ключ homeworks")
     check_list_homeworks = response.get("homeworks")
-    if check_list_homeworks is None:
-        err = "В ответе от API отсутствует ключ homeworks"
-        raise ResponseEndpointException(err)
     if not isinstance(check_list_homeworks, list):
         raise TypeError("Неверный тип данных по ключу"
                         f"{type(check_list_homeworks)}")
-    if len(check_list_homeworks) == 0:
-        logger.debug("В ответе API получен пустой список домашних работ")
     return check_list_homeworks
 
 
@@ -137,7 +132,7 @@ def main():
                     timestamp = response.get("current_date", timestamp)
                     last_message = None
             else:
-                logger.info("Новых статусов нет.")
+                logger.debug("Новых статусов нет.")
         except Exception as error:
             message = f"{error}"
             if last_message != message:
